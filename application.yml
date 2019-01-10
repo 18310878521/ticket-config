@@ -1,36 +1,32 @@
 ﻿server:
-  port:6666
-  tomcat:
-    uri-encoding: utf-8
-
+  port: 6666
 spring:
-  #   激活对应环境
   profiles:
     active: dev
- 
-
 
 ---
-
 server:
-  port: 6666
   servlet:
     context-path: /
 spring:
   profiles: prod
+  application:
+    name: ticket-prod
 
 ---
 server:
-  port: 6667
   servlet:
     context-path: /
 spring:
   profiles: test
+  application:
+    name: ticket-test
 
 ---
 server:
-  port: 6668
   servlet:
     context-path: /
 spring:
   profiles: dev
+  application:
+    name: ticket-dev
