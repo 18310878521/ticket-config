@@ -1,0 +1,37 @@
+ server:
+  port: 9002
+
+
+feign:
+  hystrix:
+    enabled: true
+
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+          defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+spring:
+    profiles:
+    active: test
+
+---
+spring:
+  cloud:
+    config:
+      profile: dev
+  application:
+    name: ticket-dev
+server:
+  context-path: /dev
+---
+spring:
+  cloud:
+    config:
+      profile: test
+  application:
+    name: ticket-test
+server:
+  context-path: /test
